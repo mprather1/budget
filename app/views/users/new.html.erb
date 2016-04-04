@@ -1,0 +1,5 @@
+<h2>New User</h2>
+<%= form_for @user do |f| %>
+  <%= render partial: 'form', locals: {f: f} %>
+  <%= f.submit('Create User', class: 'btn btn-inverse') %>
+<% end %>
