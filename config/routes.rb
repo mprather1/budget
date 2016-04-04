@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'accounts/index'
+
+  get 'accounts/show'
+
+  get 'accounts/new'
+
+  get 'accounts/edit'
+
+  get 'accounts/delete'
+
   root 'users#index'
   
   resources :users
