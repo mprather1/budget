@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'access/login' => 'access#login'
+  get 'access/attempt_login' => 'access#attempt_login'
+  post 'access/attempt_login' => 'access#attempt_login'
+  get 'access/logout' => 'access#logout'
+
+  root 'access#login'
+  
   resources :accounts
 
   resources :users

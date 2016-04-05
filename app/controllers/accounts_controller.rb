@@ -1,4 +1,7 @@
 class AccountsController < ApplicationController
+  
+   before_action :confirm_logged_in
+
 
 
   #before_action :correct_account, only: [:edit, :update, :show]
@@ -48,6 +51,12 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
     @account.destroy
     redirect_to accounts_path
+  end
+  
+  def debit
+  end
+  
+  def credit
   end
 
   private
