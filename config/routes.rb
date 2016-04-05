@@ -1,16 +1,6 @@
 Rails.application.routes.draw do
-  get 'accounts/index'
+  resources :accounts
 
-  get 'accounts/show'
-
-  get 'accounts/new'
-
-  get 'accounts/edit'
-
-  get 'accounts/delete'
-
-  root 'users#index'
-  
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
