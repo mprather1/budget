@@ -54,15 +54,22 @@ class AccountsController < ApplicationController
   end
   
   def debit
+    @user = User.find(current_user)
+    @account = Account.find(current_user)
+    if params[:trans]
+      @total = @account.balance -= params[:trans]
+    end
   end
   
   def credit
+    @user = User.find(current_user)
+    @account = Account.find(current_user)
   end
 
   private
 
   def account_params
-    params.require(:account).permit(:account_number, :balance)
+    params.require(:account).permit(:account_number, :balance, :trans)
   end
 
 end

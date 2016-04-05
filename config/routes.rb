@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   root 'access#login'
   
+  get 'accounts/debit' => 'accounts#debit'
+  post 'accounts/debit' => 'accounts#debit'
+
+  
   resources :accounts
 
   resources :users
