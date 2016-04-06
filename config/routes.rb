@@ -7,6 +7,14 @@ Rails.application.routes.draw do
 
   get 'records/edit'
 
+  get 'records/index'
+
+  get 'records/show'
+
+  get 'records/new'
+
+  get 'records/edit'
+
   get 'access/login' => 'access#login'
   get 'access/attempt_login' => 'access#attempt_login'
   post 'access/attempt_login' => 'access#attempt_login'

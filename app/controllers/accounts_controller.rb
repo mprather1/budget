@@ -51,13 +51,9 @@ class AccountsController < ApplicationController
   def debit
     @user = User.find(current_user.id)
     @account = Account.find(current_user.id)
-    if params[:trans]
-      @account.decrement!(:balance, by = params[:trans].to_i)
-      redirect_to account_path(@user)
-      @account.update_attributes(recorded: Time.now)
-    else
-      render 'show'
-    end
+    @account.debt(params[:trans])
+    redirect_to account_path(@user)
+    
   end
 
   def credit

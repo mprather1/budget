@@ -25,4 +25,6 @@ def confirm_logged_in
       redirect_to(access_login_path) unless @user == current_user
     end
   end
+  
+    
 end
