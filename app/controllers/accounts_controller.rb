@@ -51,9 +51,8 @@ class AccountsController < ApplicationController
   def debit
     @user = User.find(current_user.id)
     @account = Account.find(current_user.id)
-    @account.debt(params[:trans])
+    @account.debit(params[:trans])
     redirect_to account_path(@user)
-    
   end
 
   def credit

@@ -5,10 +5,10 @@ class Account < ActiveRecord::Base
     @current_user = @current_user || User.find_by(id: session[:user_id])
   end
 
-    def debt(x)
-    
-      Account.where('user_id = ?', self.user_id).first.decrement!(:balance, by = x.to_i)
-     # Account.where('user_id = ?', self.user_id).update_attributes!(recorded: DateTime.now)
+    def debit(amount)
+
+      Account.where('user_id = ?', self.user_id).first.decrement!(:balance, by = amount.to_i)
+      Account.where('user_id = ?', self.user_id).first.update_attributes!(recorded: DateTime.now)
      # Account.where('user_id = ?', self.user_id).touch
 
       #Account.find(1).update_attributes(recorded: DateTime.now)
