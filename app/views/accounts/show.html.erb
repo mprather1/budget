@@ -2,6 +2,13 @@
 <%= @account.balance %>
 
 <%= form_tag(controller: 'accounts', action: 'debit' ) do |f| %>
+  <%= label_tag :debit %>
+  <%= number_field_tag(:trans) %>
+  <%= submit_tag("Submit") %>
+<% end %>
+
+<%= form_tag(controller: 'accounts', action: 'credit' ) do |f| %>
+  <%= label_tag :credit %>
   <%= number_field_tag(:trans) %>
   <%= submit_tag("Submit") %>
 <% end %>

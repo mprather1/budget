@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   get 'access/logout' => 'access#logout'
 
   root 'access#login'
-  
+
   get 'accounts/debit' => 'accounts#debit'
   post 'accounts/debit' => 'accounts#debit'
 
-  
+  get 'accounts/credit' => 'accounts#credit'
+  post 'accounts/credit' => 'accounts#credit'
+
   resources :accounts
 
   resources :users

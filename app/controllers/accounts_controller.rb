@@ -58,7 +58,9 @@ class AccountsController < ApplicationController
     @account = Account.find(current_user.id)
     if params[:trans]
       #@account.balance - params[:trans].to_i
-      Account.update_all(@account.balance = (@account.balance - params[:trans].to_i).to_s)
+
+      @account.decrement!(:balance, by = params[:trans].to_i)
+      #Account.update_all(@account.balance = (@account.balance - params[:trans].to_i).to_s)
       redirect_to account_path(@user)
     else
       render 'show'
@@ -66,8 +68,17 @@ class AccountsController < ApplicationController
   end
 
   def credit
-    @user = User.find(current_user)
-    @account = Account.find(current_user)
+    @user = User.find(current_user.id)
+    @account = Account.find(current_user.id)
+    if params[:trans]
+      #@account.balance - params[:trans].to_i
+
+      @account.increment!(:balance, by = params[:trans].to_i)
+      #Account.update_all(@account.balance = (@account.balance - params[:trans].to_i).to_s)
+      redirect_to account_path(@user)
+    else
+      render 'show'
+    end
   end
 
   private
