@@ -60,6 +60,9 @@ class AccountsController < ApplicationController
       #@account.balance - params[:trans].to_i
 
       @account.decrement!(:balance, by = params[:trans].to_i)
+      @account.update_attributes(recorded: Time.now)
+      #Account.update_all(@account.recorded = Time.now.to_s)
+
       #Account.update_all(@account.balance = (@account.balance - params[:trans].to_i).to_s)
       redirect_to account_path(@user)
     else
@@ -74,6 +77,8 @@ class AccountsController < ApplicationController
       #@account.balance - params[:trans].to_i
 
       @account.increment!(:balance, by = params[:trans].to_i)
+      @account.update_attributes(recorded: Time.now)
+
       #Account.update_all(@account.balance = (@account.balance - params[:trans].to_i).to_s)
       redirect_to account_path(@user)
     else
@@ -84,7 +89,7 @@ class AccountsController < ApplicationController
   private
 
   def account_params
-    params.require(:account).permit(:account_number, :balance, :trans)
+    params.require(:account).permit(:account_number, :balance, :trans, :recorded)
   end
 
 end

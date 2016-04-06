@@ -5,6 +5,8 @@
   <tr>
     <th>Account Number:</th>
     <td>#<%= @account.account_number %></td>
+    <th>Last recorded activity: </th>
+    <td><%= @account.recorded %></td>
 
     <th>Balance</th>
     <td><%= number_to_currency @account.balance %> </td>
