@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  
+
    before_action :confirm_logged_in
 
 
@@ -52,15 +52,18 @@ class AccountsController < ApplicationController
     @account.destroy
     redirect_to accounts_path
   end
-  
+
   def debit
-    @user = User.find(current_user)
-    @account = Account.find(current_user)
+    @user = User.find(current_user.id)
+    @account = Account.find(current_user.id)
     if params[:trans]
       @total = @account.balance -= params[:trans]
+      redirect_to account_path(@account)
+    else
+      render 'show'
     end
   end
-  
+
   def credit
     @user = User.find(current_user)
     @account = Account.find(current_user)

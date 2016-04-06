@@ -2,6 +2,6 @@
 <%= @account.balance %>
 
 <%= form_tag(controller: 'accounts', action: 'debit', id: session[:user_id] ) do |f| %>
-  <%= text_field_tag(:transaction) %>
+  <%= number_field_tag(:trans) %>
   <%= submit_tag("Submit") %>
 <% end %>

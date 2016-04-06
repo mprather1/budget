@@ -13,10 +13,10 @@
   <% @accounts.each do |account| %>
   <tr>
     <td>
-      <%= account.account_number %><br>
+      <%= link_to account.account_number, account_path(account) %>
     </td>
     <td>
-      <%= number_to_currency(account.balance) %><br>
+      <%= number_to_currency(account.balance) %>
     </td>
     <% end %>
   </tr>

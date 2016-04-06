@@ -4,7 +4,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :account_number
       t.integer :balance
       t.integer :trans
-      
+      t.integer :user_id
       t.timestamps null: false
     end
   end

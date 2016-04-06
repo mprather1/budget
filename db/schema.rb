@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160404174636) do
     t.string   "account_number"
     t.integer  "balance"
     t.integer  "trans"
+    t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end

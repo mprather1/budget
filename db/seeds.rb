@@ -7,10 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create(first_name: "Nick", last_name: "Cage", username: "cagen", password: "1234")
 
-100.times do |x|
+50.times do |x|
   User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Internet.user_name, password: Faker::Internet.password)
 end
 
-100.times do |x|
-  Account.create(account_number: "#{Faker::Number.number(10)}", balance: Faker::Number.between(1000, 10000))
+50.times do |x|
+  Account.create(account_number: "#{Faker::Number.number(10)}", balance: Faker::Number.between(1000, 10000), user_id: Faker::Number.between(1, 100))
 end
