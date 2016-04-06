@@ -1,7 +1,7 @@
 <%= @account.account_number %>
 <%= @account.balance %>
 
-<%= form_tag(controller: 'accounts', action: 'debit', id: session[:user_id] ) do |f| %>
+<%= form_tag(controller: 'accounts', action: 'debit' ) do |f| %>
   <%= number_field_tag(:trans) %>
   <%= submit_tag("Submit") %>
 <% end %>

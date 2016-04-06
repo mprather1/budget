@@ -57,8 +57,9 @@ class AccountsController < ApplicationController
     @user = User.find(current_user.id)
     @account = Account.find(current_user.id)
     if params[:trans]
-      @total = @account.balance -= params[:trans]
-      redirect_to account_path(@account)
+      #@account.balance - params[:trans].to_i
+      Account.update_all(@account.balance = (@account.balance - params[:trans].to_i).to_s)
+      redirect_to account_path(@user)
     else
       render 'show'
     end
