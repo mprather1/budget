@@ -58,13 +58,8 @@ class AccountsController < ApplicationController
   def credit
     @user = User.find(current_user.id)
     @account = Account.find(current_user.id)
-    if params[:trans]
-      @account.increment!(:balance, by = params[:trans].to_i)
-      @account.update_attributes!(recorded: DateTime.now)
-      redirect_to account_path(@user)
-    else
-      render 'show'
-    end
+    @account.credit(params[:trans])
+    redirect_to account_path(@user)
   end
 
   private
