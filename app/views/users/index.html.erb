@@ -1,3 +1,7 @@
 <% @users.each do |f| %>
-  <%= link_to f.name, user_path(f) %><br>
+  <% if f.account %>
+    <%= link_to f.name, user_path(f) %><br>
+  <% end %>
 <% end %>
+
+
