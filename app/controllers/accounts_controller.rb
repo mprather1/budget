@@ -77,7 +77,7 @@ class AccountsController < ApplicationController
       #@account.balance - params[:trans].to_i
 
       @account.increment!(:balance, by = params[:trans].to_i)
-      @account.update_attributes!(recorded: Time.now)
+      @account.update_attributes!(recorded: DateTime.now)
 
       #Account.update_all(@account.balance = (@account.balance - params[:trans].to_i).to_s)
       redirect_to account_path(@user)

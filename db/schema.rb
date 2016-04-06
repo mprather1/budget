@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160406141851) do
     t.integer  "balance"
     t.integer  "trans"
     t.integer  "user_id"
-    t.date     "recorded"
+    t.datetime "recorded"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end

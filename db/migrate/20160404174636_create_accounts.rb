@@ -5,7 +5,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.integer :balance
       t.integer :trans
       t.integer :user_id
-      t.date :recorded
+      t.datetime :recorded
       t.timestamps null: false
     end
   end
