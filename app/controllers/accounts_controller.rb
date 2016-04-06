@@ -1,11 +1,6 @@
 class AccountsController < ApplicationController
 
-   before_action :confirm_logged_in
-
-
-
-  #before_action :correct_account, only: [:edit, :update, :show]
-
+  before_action :confirm_logged_in
 
   def index
     @accounts = Account.all
@@ -57,14 +52,9 @@ class AccountsController < ApplicationController
     @user = User.find(current_user.id)
     @account = Account.find(current_user.id)
     if params[:trans]
-      #@account.balance - params[:trans].to_i
-
       @account.decrement!(:balance, by = params[:trans].to_i)
-      @account.update_attributes(recorded: Time.now)
-      #Account.update_all(@account.recorded = Time.now.to_s)
-
-      #Account.update_all(@account.balance = (@account.balance - params[:trans].to_i).to_s)
       redirect_to account_path(@user)
+      @account.update_attributes(recorded: Time.now)
     else
       render 'show'
     end
@@ -74,12 +64,8 @@ class AccountsController < ApplicationController
     @user = User.find(current_user.id)
     @account = Account.find(current_user.id)
     if params[:trans]
-      #@account.balance - params[:trans].to_i
-
       @account.increment!(:balance, by = params[:trans].to_i)
       @account.update_attributes!(recorded: DateTime.now)
-
-      #Account.update_all(@account.balance = (@account.balance - params[:trans].to_i).to_s)
       redirect_to account_path(@user)
     else
       render 'show'
