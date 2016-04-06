@@ -1,14 +1,30 @@
-<%= @account.account_number %>
-<%= @account.balance %>
 
-<%= form_tag(controller: 'accounts', action: 'debit' ) do |f| %>
-  <%= label_tag :debit %>
-  <%= number_field_tag(:trans) %>
-  <%= submit_tag("Submit") %>
-<% end %>
 
-<%= form_tag(controller: 'accounts', action: 'credit' ) do |f| %>
-  <%= label_tag :credit %>
-  <%= number_field_tag(:trans) %>
-  <%= submit_tag("Submit") %>
-<% end %>
+
+<table>
+  <tr>
+    <th>Account Number:</th>
+    <td>#<%= @account.account_number %></td>
+
+    <th>Balance</th>
+    <td><%= number_to_currency @account.balance %> </td>
+  </tr>
+  <tr>
+    <th>Debit</th>
+    <td>
+      <%= form_tag(controller: 'accounts', action: 'debit' ) do |f| %>
+        <%= number_field_tag(:trans) %>
+        <%= submit_tag("Submit") %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th>Credit</th>
+    <td>
+      <%= form_tag(controller: 'accounts', action: 'credit' ) do |f| %>
+        <%= number_field_tag(:trans) %>
+        <%= submit_tag("Submit") %>
+      <% end %>
+    </td>
+  </tr>
+</table>
