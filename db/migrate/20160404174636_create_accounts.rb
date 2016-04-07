@@ -6,7 +6,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.integer :trans
       t.integer :user_id
       t.datetime :record_dates, array: true, default: [DateTime.now]
-      t.string :records, array: true
+      t.string :records, array: true, default: ["New Account"]
       t.timestamps null: false
     end
   end

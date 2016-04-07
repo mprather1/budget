@@ -66,7 +66,7 @@ class AccountsController < ApplicationController
   private
 
   def account_params
-    params.require(:account).permit(:account_number, :balance, :trans, record_dates: [])
+    params.require(:account).permit(:account_number, :balance, :trans, record_dates: [], records: [])
   end
 
 end

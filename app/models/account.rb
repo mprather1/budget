@@ -15,6 +15,8 @@ class Account < ActiveRecord::Base
   def credit(amount)
     Account.where('user_id = ?', self.user_id).first.increment!(:balance, by = amount.to_i)
     Account.where('user_id = ?', self.user_id).first.update_attributes!(record_dates: self.record_dates + [DateTime.now])
+    Account.where('user_id = ?', self.user_id).first.update_attributes!(records: self.records + ["Credit"])
+
   end
 
 end
