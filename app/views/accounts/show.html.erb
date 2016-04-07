@@ -34,7 +34,7 @@
     <th>
       Account History
     </th>
-    <% @account.records.each do |f| %>
+    <% @account.record_dates.each do |f| %>
   </tr>
   <tr>
     <td><%= f.strftime("%I:%M %p on %m/%d/%Y") %></td>

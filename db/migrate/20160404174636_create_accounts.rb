@@ -5,7 +5,8 @@ class CreateAccounts < ActiveRecord::Migration
       t.integer :balance, default: Faker::Number.between(1000, 100000)
       t.integer :trans
       t.integer :user_id
-      t.datetime :records, array: true, default: [DateTime.now]
+      t.datetime :record_dates, array: true, default: [DateTime.now]
+      t.string :records, array: true
       t.timestamps null: false
     end
   end

@@ -17,11 +17,12 @@ ActiveRecord::Schema.define(version: 20160404174636) do
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
-    t.string   "account_number", default: "1172587293"
-    t.integer  "balance",        default: 25686
+    t.string   "account_number", default: "3516808977"
+    t.integer  "balance",        default: 49691
     t.integer  "trans"
     t.integer  "user_id"
-    t.datetime "records",        default: [2016-04-07 13:47:58 UTC],              array: true
+    t.datetime "record_dates",   default: [2016-04-07 15:12:42 UTC],              array: true
+    t.string   "records",                                                         array: true
     t.datetime "created_at",                                         null: false
     t.datetime "updated_at",                                         null: false
   end
