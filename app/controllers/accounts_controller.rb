@@ -15,13 +15,9 @@ class AccountsController < ApplicationController
   end
 
   def create
-    @account = Account.new(account_params)
-
-    if @account.save
-      redirect_to account_path(@account)
-    else
-      render 'new'
-    end
+    @account = Account.create(account_params)
+    #@record = Record.create(user_id: @account.user_id)
+    redirect_to account_path(@account)
   end
 
   def edit
@@ -66,6 +62,11 @@ class AccountsController < ApplicationController
 
   def account_params
     params.require(:account).permit(:account_number, :balance, :trans, :recorded)
+  end
+
+  def record_params
+    params.require(:recorded, :user_id)
+
   end
 
 end
