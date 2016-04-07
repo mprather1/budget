@@ -1,19 +1,4 @@
 Rails.application.routes.draw do
-  get 'records/index'
-
-  get 'records/show'
-
-  get 'records/new'
-
-  get 'records/edit'
-
-  get 'records/index'
-
-  get 'records/show'
-
-  get 'records/new'
-
-  get 'records/edit'
 
   get 'access/login' => 'access#login'
   get 'access/attempt_login' => 'access#attempt_login'
@@ -28,7 +13,8 @@ Rails.application.routes.draw do
   get 'accounts/credit' => 'accounts#credit'
   post 'accounts/credit' => 'accounts#credit'
 
-  resources :accounts
+  resources :accounts 
+
 
   resources :users
 
