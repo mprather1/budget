@@ -24,5 +24,11 @@ class RecordsController < ApplicationController
     @record.update_attributes(record_params)
 
   end
-  
+
+  private
+
+  def record_params
+    params.require(:record).permit(recordeds: [])
+  end
+
 end

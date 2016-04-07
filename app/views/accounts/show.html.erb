@@ -37,8 +37,11 @@
     <th>
       History
     </th>
+    <% @account.records.each do |f| %>
+      <%= f.recorded %>
+    <% end %>
     <td>
-      <%= @account.record.recorded %>
+
     </td>
   </tr>
 </table>
