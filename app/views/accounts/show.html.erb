@@ -31,3 +31,17 @@
     </td>
   </tr>
 </table>
+
+<table>
+  <tr>
+    <th>
+      History
+    </th>
+    <% @account.records.each do |f| %>
+      <%= f.recorded %>
+    <% end %>
+    <td>
+
+    </td>
+  </tr>
+</table>

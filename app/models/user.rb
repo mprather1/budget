@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 #  def create_account
 #    @account.create(account_number: "#{Faker::Number.number(10)}", balance: 0, user_id: current_user.id
 #  end
+private
 
   def build_default_account
     build_account

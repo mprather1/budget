@@ -12,9 +12,9 @@ User.create(first_name: "Kill", last_name: "Bill", username: "killb", password: 
   User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Internet.user_name, password: Faker::Internet.password)
 end
 
-Account.create(account_number: "#{Faker::Number.number(10)}", balance: Faker::Number.between(1000, 10000), user_id: 1)
-Account.create(account_number: "#{Faker::Number.number(10)}", balance: Faker::Number.between(1000, 10000), user_id: 2)
+#Account.create(account_number: "#{Faker::Number.number(10)}", balance: Faker::Number.between(1000, 10000), user_id: 1)
+#Account.create(account_number: "#{Faker::Number.number(10)}", balance: Faker::Number.between(1000, 10000), user_id: 2)
 
-10.times do |x|
-  Account.create(account_number: "#{Faker::Number.number(10)}", balance: Faker::Number.between(1000, 10000), user_id: Faker::Number.between(3, 10))
-end
+#10.times do |x|
+#  Account.create(account_number: "#{Faker::Number.number(10)}", balance: Faker::Number.between(1000, 10000))
+#end

@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20160406141851) do
   end
 
   create_table "records", force: :cascade do |t|
-    t.string   "recorded"
+    t.string   "recorded",   default: "2016-04-07 01:57:34.239435"
     t.integer  "account_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
   end
 
   create_table "users", force: :cascade do |t|
