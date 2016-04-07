@@ -17,7 +17,4 @@ class Account < ActiveRecord::Base
     Account.where('user_id = ?', self.user_id).first.update_attributes!(records: self.records + [DateTime.now])
   end
 
-
-
-
 end

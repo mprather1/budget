@@ -5,11 +5,7 @@
   <tr>
     <th>Account Number:</th>
     <td>#<%= @account.account_number %></td>
-    <th>Last recorded activity: </th>
-    <% @account.records.each do |f| %>
 
-    <td><%= f.strftime("%I:%M %p on %m/%d/%Y") %></td>
-    <% end %>
     <th>Balance</th>
     <td><%= number_to_currency @account.balance %> </td>
   </tr>
@@ -38,10 +34,9 @@
     <th>
       History
     </th>
-    <% @account.records.each do |record| %>
-    <td>
-      <%= record %>
-    </td>
+    <% @account.records.each do |f| %>
+
+    <td><%= f.strftime("%I:%M %p on %m/%d/%Y") %></td><br>
     <% end %>
   </tr>
 </table>
