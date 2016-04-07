@@ -11,23 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406141851) do
+ActiveRecord::Schema.define(version: 20160404174636) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
     t.string   "account_number"
     t.integer  "balance"
     t.integer  "trans"
     t.integer  "user_id"
-    t.datetime "recorded"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  create_table "records", force: :cascade do |t|
-    t.string   "recorded",   default: "2016-04-07 01:57:34.239435"
-    t.integer  "account_id"
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
+    t.datetime "records",        default: [2016-04-07 03:08:18 UTC],              array: true
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
   end
 
   create_table "users", force: :cascade do |t|
