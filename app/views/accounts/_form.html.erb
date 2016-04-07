@@ -1,10 +1,12 @@
 <table class="table-condensed">
 <tr>
-  <th><%= label_tag(:account_number) %></th>
-  <td><%= text_field_tag(:account_number) %></td><br>
+  <th><%= f.label(:account_number) %></th>
+  <td><%= f.text_field(:account_number) %></td><br>
 </tr>
 <tr>
-  <th><%= label_tag(:balance) %></th>
-  <td><%= text_field_tag(:balance) %></td><br>
+  <th><%= f.label(:balance) %></th>
+  <td><%= f.text_field(:balance) %></td><br>
 </tr>
+
+
 </table>

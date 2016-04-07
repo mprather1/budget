@@ -1,4 +1,4 @@
-<%= form_tag @account do |f| %>
+<%= form_for @account do |f| %>
   <%= render partial: 'form', locals: {f: f} %>
-  <%= submit_tag "Submit" %>
+  <%= f.submit("Submit") %>
 <% end %>
