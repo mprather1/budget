@@ -59,13 +59,14 @@ class AccountsController < ApplicationController
     @user = User.find(current_user.id)
     @account = Account.find(current_user.id)
     @account.credit(params[:trans])
+    #@account.records << DateTime.now
     redirect_to account_path(@user)
   end
 
   private
 
   def account_params
-    params.require(:account).permit(:account_number, :balance, :trans, :recorded)
+    params.require(:account).permit(:account_number, :balance, :trans, records: [])
   end
 
 end
