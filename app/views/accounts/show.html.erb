@@ -30,18 +30,25 @@
 </table>
 
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-3">
         <h3>Account History</h3>
-      <% @account.record_dates.each do |f| %>
-        <span><%= f.strftime("%I:%M %p on %m/%d/%Y") %></span><br>
+      <% @account.record_dates.each do |record_date| %>
+        <span><%= record_date.strftime("%I:%M %p on %m/%d/%Y") %></span><br>
       <% end %>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-3">
         <h3>Transactions</h3>
-      <% @account.records.each do |t| %>
-        <span><%= t %></span><br>
+      <% @account.records.each do |record| %>
+        <span><%= record %></span><br>
         <% end %>
       </div>
+      <div class="col-sm-3">
+          <h3>Amount</h3>
+        <% @account.amounts.each do |amount| %>
+          <span><%= amount %></span><br>
+          <% end %>
+        </div>
+
 
 
   </div>

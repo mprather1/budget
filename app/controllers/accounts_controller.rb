@@ -51,6 +51,7 @@ class AccountsController < ApplicationController
   def debit
     @user = User.find(current_user.id)
     @account = Account.find(current_user.id)
+    @account.transaction_amount =  params[:trans]
     @account.debit(params[:trans])
     redirect_to account_path(@user)
   end
@@ -58,15 +59,15 @@ class AccountsController < ApplicationController
   def credit
     @user = User.find(current_user.id)
     @account = Account.find(current_user.id)
+    @account.transaction_amount =  params[:trans]
     @account.credit(params[:trans])
-    #@account.records << DateTime.now
     redirect_to account_path(@user)
   end
 
   private
 
   def account_params
-    params.require(:account).permit(:account_number, :balance, :trans, record_dates: [], records: [])
+    params.require(:account).permit(:account_number, :balance, :trans, :transaction_amount, record_dates: [], records: [], amounts: [])
   end
 
 end
