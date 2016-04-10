@@ -29,26 +29,19 @@
   </tr>
 </table>
 
-<table>
-  <div>
-      <tr>
-        <th>Account History</th>
-      </tr>
+  <div class="row">
+    <div class="col-sm-6">
+        <h3>Account History</h3>
       <% @account.record_dates.each do |f| %>
-      <tr>
-        <td><%= f.strftime("%I:%M %p on %m/%d/%Y") %></td>
-      </tr>
+        <span><%= f.strftime("%I:%M %p on %m/%d/%Y") %></span><br>
       <% end %>
-      <tr>
-        <th>Transactions</th>
-      </tr>
+    </div>
+    <div class="col-sm-6">
+        <h3>Transactions</h3>
       <% @account.records.each do |t| %>
-      <tr>
-        <td>
-          <%= t %>
-        </td>
-      </tr>
+        <span><%= t %></span><br>
         <% end %>
+      </div>
 
 
   </div>
