@@ -1,1 +1,3 @@
 nav li { display: inline}
+.box_border {border: 1px solid black;
+  margin-left: 2px}

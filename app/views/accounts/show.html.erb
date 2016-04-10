@@ -29,29 +29,42 @@
   </tr>
 </table>
 
-  <div class="row">
-    <div class="col-sm-3">
-        <h3>Account History</h3>
-      <% @account.record_dates.each do |record_date| %>
-        <span><%= record_date.strftime("%I:%M %p on %m/%d/%Y") %></span><br>
-      <% end %>
-    </div>
-    <div class="col-sm-3">
-        <h3>Transactions</h3>
-      <% @account.records.each do |record| %>
-        <span><%= record %></span><br>
-        <% end %>
-      </div>
-      <div class="col-sm-3">
-          <h3>Amount</h3>
-        <% @account.amounts.each do |amount| %>
-          <span><%= amount %></span><br>
-          <% end %>
-        </div>
-
-
-
+<div class="row">
+  <div class="col-sm-1">
   </div>
+  <div class="col-sm-3 box_border">
+    <h3>Account History</h3>
+    <% @account.record_dates.each do |record_date| %>
+      <span><%= record_date.strftime("%I:%M %p on %m/%d/%Y") %></span><br>
+    <% end %>
+  </div>
+  <div class="col-sm-3 box_border">
+    <h3>Transactions</h3>
+    <% @account.records.each do |record| %>
+      <span><%= record %></span><br>
+    <% end %>
+  </div>
+  <div class="col-sm-3 box_border">
+    <h3>Amount</h3>
+    <% @account.amounts.each do |amount| %>
+      <span><%= number_to_currency amount %></span><br>
+    <% end %>
+  </div>
+  <div class="col-sm-1">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-7">
+  </div>
+  <div class="col-sm-5 total_border">
+    <span><%= number_to_currency @account.balance %></span>
+  </div>
+</div>
+
+
+
+
 
 
 </table>
