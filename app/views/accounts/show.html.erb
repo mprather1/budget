@@ -13,7 +13,7 @@
     <th>Debit</th>
     <td>
       <%= form_tag(controller: 'accounts', action: 'debit' ) do |f| %>
-        <%= number_field_tag(:trans) %>
+        <%= number_field_tag :trans, nil, step: 0.01 %>
         <%= submit_tag("Submit") %>
       <% end %>
     </td>
@@ -22,7 +22,7 @@
     <th>Credit</th>
     <td>
       <%= form_tag(controller: 'accounts', action: 'credit' ) do |f| %>
-        <%= number_field_tag(:trans) %>
+        <%= number_field_tag :trans, nil, step: 0.01 %>
         <%= submit_tag("Submit") %>
       <% end %>
     </td>
