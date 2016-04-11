@@ -47,16 +47,16 @@
   <div class="col-sm-2 box_border">
     <h3>Transactions</h3>
     <% @account.records.each do |record| %>
-      <span><%= record %></span><br>
+      <span class="<%= cycle('odd', 'even') %>"><%= record %></span><br>
     <% end %>
   </div>
-  <div class="col-sm-3 box_border">
+  <div class="col-sm-2 box_border">
     <h3>Amount</h3>
     <% @account.amounts.each do |amount| %>
       <span><%= number_to_currency amount %></span><br>
     <% end %>
   </div>
-  <div class="col-sm-2 box_border">
+  <div class="col-sm-3 box_border">
     <h3>Memo</h3>
     <% @account.memos.each do |memo| %>
       <span><%= memo %></span><br>
