@@ -9,11 +9,15 @@
     <th>Balance</th>
     <td><%= number_to_currency @account.balance %> </td>
   </tr>
+  
+
+  
   <tr>
     <th>Debit</th>
     <td>
       <%= form_tag(controller: 'accounts', action: 'debit' ) do |f| %>
         <%= number_field_tag :trans, nil, step: 0.01 %>
+          <%= text_field_tag :note %>
         <%= submit_tag("Submit") %>
       <% end %>
     </td>
@@ -23,22 +27,24 @@
     <td>
       <%= form_tag(controller: 'accounts', action: 'credit' ) do |f| %>
         <%= number_field_tag :trans, nil, step: 0.01 %>
+          <%= text_field_tag :note %>
         <%= submit_tag("Submit") %>
       <% end %>
     </td>
   </tr>
 </table>
+<hr>  
 
 <div class="row">
   <div class="col-sm-1">
   </div>
-  <div class="col-sm-3 box_border">
+   <div class="col-sm-3 box_border">
     <h3>Account History</h3>
     <% @account.record_dates.each do |record_date| %>
       <span><%= record_date.strftime("%I:%M %p on %m/%d/%Y") %></span><br>
     <% end %>
   </div>
-  <div class="col-sm-3 box_border">
+  <div class="col-sm-2 box_border">
     <h3>Transactions</h3>
     <% @account.records.each do |record| %>
       <span><%= record %></span><br>
@@ -50,14 +56,19 @@
       <span><%= number_to_currency amount %></span><br>
     <% end %>
   </div>
-  <div class="col-sm-1">
+  <div class="col-sm-2 box_border">
+    <h3>Memo</h3>
+    <% @account.memos.each do |memo| %>
+      <span><%= memo %></span><br>
+    <% end %>
   </div>
+ </div>
 </div>
 
 <div class="row">
-  <div class="col-sm-7">
+  <div class="col-sm-6">
   </div>
-  <div class="col-sm-5 total_border">
+  <div class="col-sm-6 total_border">
     <span><%= number_to_currency @account.balance %></span>
   </div>
 </div>

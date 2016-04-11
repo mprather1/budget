@@ -52,6 +52,7 @@ class AccountsController < ApplicationController
     @user = User.find(current_user.id)
     @account = Account.find(current_user.id)
     @account.transaction_amount =  params[:trans]
+    @account.note = params[:note]
     @account.debit(params[:trans])
     redirect_to account_path(@user)
   end
@@ -60,6 +61,7 @@ class AccountsController < ApplicationController
     @user = User.find(current_user.id)
     @account = Account.find(current_user.id)
     @account.transaction_amount =  params[:trans]
+    @account.note = params[:note]
     @account.credit(params[:trans])
     redirect_to account_path(@user)
   end
@@ -67,7 +69,7 @@ class AccountsController < ApplicationController
   private
 
   def account_params
-    params.require(:account).permit(:account_number, :balance, :trans, :transaction_amount, record_dates: [], records: [], amounts: [])
+    params.require(:account).permit(:account_number, :balance, :trans, :transaction_amount, :note, record_dates: [], records: [], amounts: [], memos: [])
   end
 
 end
