@@ -1,5 +1,5 @@
 class Account < ActiveRecord::Base
-
+  attr_accessor :trans, :transaction_amount, :note
   has_one :record
 
   belongs_to :user
